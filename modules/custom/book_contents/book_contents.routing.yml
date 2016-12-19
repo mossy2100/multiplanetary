@@ -1,0 +1,7 @@
+book_contents.description:
+  path: '/examples/book-contents'
+  defaults:
+    _controller: '\Drupal\book_contents\Controller\BookContentsController::description'
+    _title: 'Book Contents'
+  requirements:
+    _permission: 'access content'

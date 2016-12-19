@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Module file for book_contents.
+ */
+
+use Drupal\Core\Block\BlockPluginInterface;
+
+/**
+ * Implements hook_block_view_alter().
+ */
+function book_contents_block_view_book_navigation_alter(array &$build, BlockPluginInterface $block) {
+//  $build['#pre_render'][] = '_book_contents_book_navigation_block_pre_render';
+
+  $build['#title'] = t('New title of the block');
+}
+
+function _book_contents_book_navigation_block_pre_render(array $build) {
+
+//  $node = $this->requestStack->getCurrentRequest()->get('node');
+//  $node = \Drupal::routeMatch()->getParameter('node');
+////  $book_menus = [];
+//  dpm($node);
+
+
+
+
+  //  foreach ($this->bookManager->getAllBooks() as $book_id => $book) {
+//    // If the current page is a node associated with a book, the menu
+//    // needs to be retrieved.
+//    $data = $this->bookManager->bookTreeAllData($node->book['bid'], $node->book);
+//    $book_menus[$book_id] = $this->bookManager->bookTreeOutput($data);
+//    $book_menus[$book_id] += [
+//      '#book_title' => $book['title'],
+//    ];
+//  }
+//  if ($book_menus) {
+//    $build = [
+//        '#theme' => 'book_all_books_block',
+//      ] + $book_menus;
+//  }
+//
+//  $build = [];
+}

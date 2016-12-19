@@ -1,0 +1,9 @@
+name: Book Contents Show All
+description: Creates a custom block displaying the full Table of Contents for a book.
+package: Custom
+type: module
+version: 1.0
+core: 8.x
+dependencies:
+  - block
+  - node

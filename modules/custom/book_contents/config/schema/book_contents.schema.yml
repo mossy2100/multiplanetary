@@ -1,0 +1,7 @@
+block.settings.example_configurable_text:
+  type: block_settings
+  label: 'Modifes core book contents block to display all contents on all pages.'
+  mapping:
+    book_contents_string:
+      type: text
+      label: 'Block contents'
