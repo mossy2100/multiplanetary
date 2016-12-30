@@ -19,3 +19,15 @@ span.tab {
   display: inline-block;
   width: 2.9375rem;
 }
+
+.node--type-book table {
+  margin: 10px auto;
+}
+
+.node--type-book thead tr {
+  background-color: #bfdfff;
+}
+
+.node--type-book tfoot tr {
+  background-color: #ffdfbf;
+}
