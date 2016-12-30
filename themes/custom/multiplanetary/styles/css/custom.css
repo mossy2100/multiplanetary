@@ -25,9 +25,11 @@ span.tab {
 }
 
 .node--type-book thead tr {
+  font-weight: bold;
   background-color: #bfdfff;
 }
 
 .node--type-book tfoot tr {
+  font-weight: bold;
   background-color: #ffdfbf;
 }
