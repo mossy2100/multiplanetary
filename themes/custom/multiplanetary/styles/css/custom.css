@@ -33,3 +33,7 @@ span.tab {
   font-weight: bold;
   background-color: #ffdfbf;
 }
+
+sup, sub {
+  line-height: 0;
+}
