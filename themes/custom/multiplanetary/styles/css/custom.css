@@ -37,3 +37,7 @@ span.tab {
 sup, sub {
   line-height: 0;
 }
+
+tr:hover {
+  background-color: transparent;
+}
