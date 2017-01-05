@@ -41,3 +41,22 @@ sup, sub {
 tr:hover {
   background-color: transparent;
 }
+
+tr.terrestrial {
+  font-weight: bold;
+  background-color: #e5ffe5;
+}
+
+tr.satellite {
+  background-color: #ffe5f2;
+}
+
+tr.dwarf {
+  font-style: italic;
+  background-color: #ffffe5;
+}
+
+td.num,
+th.num {
+  text-align: right;
+}
