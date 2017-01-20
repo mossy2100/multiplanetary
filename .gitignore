@@ -23,7 +23,6 @@ sites/*/services*.yml
 sites/*/private
 
 # Include uploaded images, to save me having to reupload them on production.
-# It seems the only way to do this is to exclude everything else
 sites/default/files/*
 !sites/default/files/inline-images
 
