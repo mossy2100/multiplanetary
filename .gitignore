@@ -19,8 +19,13 @@ sites/*/settings*.php
 sites/*/services*.yml
 
 # Ignore paths that contain user-generated content.
-sites/*/files
+#sites/*/files
 sites/*/private
+
+# Include uploaded images, to save me having to reupload them on production.
+# It seems the only way to do this is to exclude everything else
+sites/default/files/*
+!sites/default/files/inline-images
 
 # Ignore SimpleTest multi-site environment.
 sites/simpletest
