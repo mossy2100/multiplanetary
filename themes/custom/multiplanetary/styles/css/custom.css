@@ -36,6 +36,7 @@ span.tab {
 
 sup, sub {
   line-height: 0;
+  font-size: 0.75rem;
 }
 
 tr:hover {
