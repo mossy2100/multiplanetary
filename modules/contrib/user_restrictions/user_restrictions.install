@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function user_restrictions_schema() {
+  $schema['user_restrictions'] = array(
+    'description' => 'Stores user restrictions.',
+    'fields' => array(
+      'urid' => array(
+        'description' => 'Primary Key: Unique user restriction ID.',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ),
+      'uuid' => array(
+        'description' => 'Unique Key: Universally unique identifier for this entity.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => FALSE,
+      ),
+      'mask' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Text mask used for filtering restrictions.',
+      ),
+      'type' => array(
+        'description' => 'Type of access rule: name, mail, or any value defined from a third-party module.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'status' => array(
+        'description' => 'Whether the restriction is to allow (1), or deny access (0).',
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'expire' => array(
+        'description' => 'A Unix timestamp indicating when the restriction expires.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'indexes' => array(
+      'type' => array(array('type', 32)),
+      'status' => array('status'),
+      'expire' => array('expire'),
+    ),
+    'unique keys' => array(
+      'uuid' => array('uuid'),
+    ),
+    'primary key' => array('urid'),
+  );
+
+  return $schema;
+}

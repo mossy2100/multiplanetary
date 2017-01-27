@@ -1,0 +1,102 @@
+<?php
+
+/**
+ * @file
+ * Specifies rules for restricting the data users can set for their accounts.
+ */
+
+use \Drupal\user_restrictions\UserRestrictionsManager;
+
+/**
+ * Implements hook_cron().
+ *
+ * Delete expired items in the user_restrictions table.
+ */
+function user_restrictions_cron() {
+  UserRestrictionsManager::garbageCollection();
+}
+
+/**
+ * Implements hook_help().
+ */
+function user_restrictions_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#user_restrictions':
+      return '<p>' . t("The user restrictions module allows you to specify rules for allowable usernames, or e-mail addresses. A rule may either explicitly <q>allow</q> access or <q>deny</q> access based on the rule's <em>Access type</em>, <em>Rule type</em>, and <em>Mask</em>. For <em>Username</em> and <em>E-Mail</em> rule types, if the username or e-mail address of an existing account or new registration matches the <em>Mask</em> of a <q>deny</q> rule, but not an <q>allow</q> rule, then the account will not be created (for new registrations) or able to log in (for existing accounts).
+      The user restrictions module could also be used to prevent new users from registering with usernames like <q>Admin</q> or with e-mail addresses from certain domains. Existing logged-in users with e-mail addresses or usernames that match a <q>deny</q> rule (but not an <q>allow</q> rule) are not immediately logged out (but once they log out, may not log back in), Be careful to not create a <q>deny</q> rule that includes your administrative account.
+      Visitors attempting to view your site from an IP address or hostname that matches a <q>deny</q> rule will receive a <q>banned address</q> message. Drupal checks incoming addresses for potential bans before any other Drupal modules or themes are loaded."
+    ) . '</p>';
+    break;
+    case 'admin/config/people/user-restrictions':
+      return t("Set up rules for allowable usernames and e-mail address. A rule may either explicitly allow access or deny access based on the rule's Access type, Rule type, and Mask. If the username or e-mail address of an existing account or new registration matches a deny rule, but not an allow rule, then the account will not be created (for new registrations) or able to log in (for existing accounts).");
+      break;
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function user_restrictions_permission() {
+  $perms = array(
+    'administer user restrictions' => array(
+      'title' => t('Administer User Restrictions'),
+      'restrict access' => TRUE,
+    ),
+    'bypass user restriction rules' => array(
+      'title' => t('Bypass user restriction rules'),
+      'restrict access' => TRUE,
+    ),
+  );
+
+  return $perms;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for user_login_form().
+ */
+function user_restrictions_form_user_login_form_alter(&$form, &$form_state) {
+  $form['#validate'][] = 'user_restrictions_validate';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for user_register_form().
+ */
+function user_restrictions_form_user_register_form_alter(&$form, &$form_state) {
+  $form['#validate'][] = 'user_restrictions_validate';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for user_form().
+ */
+function user_restrictions_form_user_form_alter(&$form, &$form_state) {
+  $form['#validate'][] = 'user_restrictions_validate';
+}
+
+
+/**
+ * Validation function to pass off names/emails and determine if they are
+ * blocked or allowed on the site.
+ *
+ * @param $form
+ * @param $form_state
+ */
+function user_restrictions_validate($form, $form_state) {
+  if (!\Drupal::currentUser()->hasPermission('bypass user restriction rules')) {
+    $restriction_manager = new UserRestrictionsManager($form, $form_state);
+    if (isset($form_state['values']['name'])) {
+      $restriction_manager->isRestricted('name', $form_state['values']['name']);
+    }
+    if (isset($form_state['values']['mail'])) {
+      $restriction_manager->isRestricted('mail', $form_state['values']['mail']);
+    }
+  }
+}
+
+/**
+ * @param mixed $urid
+ * @param bool $reset
+ * @return \Drupal\Core\Entity\EntityInterface
+ */
+function user_restrictions_load($urid = NULL, $reset = FALSE) {
+  return entity_load('user_restrictions', $urid, $reset);
+}
