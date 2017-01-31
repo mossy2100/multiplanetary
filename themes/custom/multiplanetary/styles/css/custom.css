@@ -65,3 +65,11 @@ th.num {
 .field-node--body li {
   margin: 0 0 0.875rem;
 }
+
+tr.hydrogen {
+  background-color: rgb(255, 255, 229);
+}
+
+tr.helium {
+  background-color: rgb(217, 255, 255);
+}
