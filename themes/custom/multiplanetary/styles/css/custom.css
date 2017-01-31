@@ -61,3 +61,7 @@ td.num,
 th.num {
   text-align: right;
 }
+
+li {
+  margin: 0 0 0.875rem;
+}
