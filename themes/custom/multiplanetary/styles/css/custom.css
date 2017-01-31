@@ -24,16 +24,6 @@ span.tab {
   margin: 10px auto;
 }
 
-.node--type-book thead tr {
-  font-weight: bold;
-  background-color: #bfdfff;
-}
-
-.node--type-book tfoot tr {
-  font-weight: bold;
-  background-color: #ffdfbf;
-}
-
 sup, sub {
   line-height: 0;
   font-size: 0.75rem;
@@ -43,18 +33,37 @@ tr:hover {
   background-color: transparent;
 }
 
+.node--type-book thead tr,
+.node--type-book th {
+  font-weight: bold;
+  background-color: #bfdfff; /* blue */
+}
+
+.node--type-book tfoot tr {
+  font-weight: bold;
+  background-color: #ffdfbf; /* orange */
+}
+
 tr.terrestrial {
   font-weight: bold;
-  background-color: #e5ffe5;
+  background-color: #e5ffe5; /* green */
 }
 
 tr.satellite {
-  background-color: #ffe5f2;
+  background-color: #ffe5f2; /* pink */
 }
 
 tr.dwarf {
   font-style: italic;
-  background-color: #ffffe5;
+  background-color: #ffffe5; /* yellow */
+}
+
+tr.major {
+  background-color: #e5ffe5; /* green */
+}
+
+tr.minor {
+  background-color: #ffffe5; /* yellow */
 }
 
 td.num,
@@ -67,9 +76,9 @@ th.num {
 }
 
 tr.hydrogen {
-  background-color: rgb(255, 255, 229);
+  background-color: #ffffe5;
 }
 
 tr.helium {
-  background-color: rgb(217, 255, 255);
+  background-color: #ffe5f2;
 }
