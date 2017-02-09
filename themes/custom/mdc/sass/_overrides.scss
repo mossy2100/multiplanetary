@@ -1,0 +1,239 @@
+// @todo these should be their own CSS files and only included when
+// specific Drupal libraries are used.
+@import "component/alert";
+@import "component/ajax";
+@import "component/field";
+@import "component/file";
+@import "component/filter";
+@import "component/form";
+@import "component/icon";
+@import "component/navbar";
+@import "component/node";
+@import "component/panel";
+@import "component/progress-bar";
+@import "component/table-drag";
+@import "component/tabs";
+@import "component/toolbar";
+// jQuery UI style overrides.
+@import "jquery-ui/autocomplete";
+
+$paleBlue: #e5eeff;
+$lightBlue: #05f;
+$darkBlue: #000040;
+$orange: #ff8200;
+$red: #f00;
+
+body {
+  background-color: $darkBlue;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $red;
+}
+
+a {
+  color: $lightBlue;
+
+  &:active,
+  &:focus,
+  &:visited {
+    color: $lightBlue;
+  }
+
+  &:hover {
+    color: $lightBlue;
+    text-decoration: underline;
+  }
+}
+
+ol, ul {
+  padding-left: 1.5em;
+  .popover &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Page header.
+.page-header {
+  margin: 15px 0;
+  padding: 0;
+}
+
+#header {
+  padding: 0;
+}
+
+// Footer.
+.footer {
+  background-color: $red;
+
+  .nav > li > a {
+    color: white;
+    display: inline-block;
+
+    &:hover {
+      text-decoration: underline;
+      background-color: transparent;
+    }
+  }
+}
+
+// Paragraphs.
+p:last-child,
+.form-group:last-child,
+.panel:last-child {
+  margin-bottom: 0;
+}
+
+// Help region.
+.region-help {
+  > .glyphicon {
+    font-size: $font-size-large;
+    float: left;
+    margin: -0.05em 0.5em 0 0;
+  }
+  .block {
+    overflow: hidden;
+  }
+}
+
+.help-block, .control-group .help-inline {
+  color: $gray-light;
+  font-size: 12px;
+  margin: 5px 0 10px;
+  padding: 0;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.logo {
+  width: 20%;
+  padding-left: 15px;
+
+  img {
+    width: 100%;
+  }
+}
+
+#block-mdc-main-menu {
+  > ul {
+    background-color: $darkBlue;
+    width: 100%;
+
+    a {
+      color: white;
+    }
+
+    > li > a.is-active {
+      background-color: $lightBlue;
+    }
+
+    > li > a:hover,
+    > li > a:focus {
+      background-color: $red;
+    }
+  }
+}
+
+div.author {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 1rem;
+  font-style: italic;
+  background-color: $paleBlue;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.book-nav {
+  background-color: $paleBlue;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+
+  table {
+    width: 100%;
+  }
+
+  .prev-page {
+    text-align: left;
+  }
+
+  .up-page {
+    text-align: center;
+  }
+
+  .next-page {
+    text-align: right;
+  }
+}
+
+.field--name-body {
+  margin: 15px 0;
+}
+
+.breadcrumb {
+  background-color: transparent;
+}
+
+#block-booknavigation {
+  margin: 15px 0;
+
+  > h2 {
+    display: none;
+  }
+
+  nav > ul {
+    padding-left: 0;
+    list-style-type: none;
+
+    > li > a {
+      font-weight: bold;
+    }
+  }
+}
+
+.main-container {
+  background-color: white;
+}
+
+#left-sidebar {
+  background-color: $paleBlue;
+}
+
+#block-mdc-search {
+  margin: 15px 0;
+}
+
+#block-bookcontents {
+  .top-page {
+    font-weight: bold;
+  }
+
+  .current-page {
+    color: $red;
+    font-weight: bold;
+  }
+
+  .unpublished-page {
+    color: silver;
+  }
+
+  a:hover {
+    color: red;
+  }
+}
+
+.alert {
+  margin: 15px 0;
+}
+
+ol.breadcrumb {
+  margin: 15px 0;
+  padding: 0;
+}
+
+ul.links {
+  margin: 25px 0 5px;
+}
