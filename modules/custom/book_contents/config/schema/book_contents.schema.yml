@@ -1,7 +1,9 @@
-block.settings.example_configurable_text:
+# Schema for the configuration files of the book contents module.
+
+block.settings.book_contents:
   type: block_settings
-  label: 'Modifes core book contents block to display all contents on all pages.'
+  label: 'Book contents block'
   mapping:
-    book_contents_string:
-      type: text
-      label: 'Block contents'
+    block_mode:
+      type: string
+      label: 'Block display mode'

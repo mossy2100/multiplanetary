@@ -1,9 +1,12 @@
-name: Book Contents Show All
-description: Creates a custom block displaying the full Table of Contents for a book.
-package: Custom
+name: Book Contents
 type: module
-version: 1.0
-core: 8.x
+description: 'Allows users to create a block showing all pages in a book.'
+package: Core
+# version: VERSION
+# core: 8.x
 dependencies:
-  - block
-  - node
+  - book
+
+version: '8.2.5'
+core: '8.x'
+project: 'drupal'
