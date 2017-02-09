@@ -51,3 +51,7 @@ core/phpunit.xml
 
 # JetBrains
 .idea
+
+# sass cache
+.sass-cache
+themes/**/.sass-cache
