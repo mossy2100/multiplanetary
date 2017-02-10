@@ -18,6 +18,7 @@
 @import "jquery-ui/autocomplete";
 
 $paleBlue: #e5eeff;
+$lighterBlue: #80aaff;
 $lightBlue: #05f;
 $darkBlue: #000040;
 $orange: #ff8200;
@@ -66,10 +67,12 @@ ol, ul {
 
 // Footer.
 .footer {
-  background-color: $red;
+  background-color: $darkBlue;
+  color: white;
 
+  a,
   .nav > li > a {
-    color: white;
+    color: $lighterBlue;
     display: inline-block;
 
     &:hover {
