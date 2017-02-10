@@ -9680,129 +9680,152 @@ p:last-child,
 }
 
 /* line 170, ../sass/_overrides.scss */
-.field--name-body {
-  margin: 0 0 15px;
-}
-
-/* line 174, ../sass/_overrides.scss */
 .breadcrumb {
   background-color: transparent;
 }
 
-/* line 178, ../sass/_overrides.scss */
+/* line 174, ../sass/_overrides.scss */
 #block-booknavigation {
   margin: 15px 0;
 }
-/* line 181, ../sass/_overrides.scss */
+/* line 177, ../sass/_overrides.scss */
 #block-booknavigation > h2 {
   display: none;
 }
-/* line 185, ../sass/_overrides.scss */
+/* line 181, ../sass/_overrides.scss */
 #block-booknavigation nav > ul {
   padding-left: 0;
   list-style-type: none;
 }
-/* line 189, ../sass/_overrides.scss */
+/* line 185, ../sass/_overrides.scss */
 #block-booknavigation nav > ul > li > a {
   font-weight: bold;
 }
 
-/* line 195, ../sass/_overrides.scss */
+/* line 191, ../sass/_overrides.scss */
 .logo {
   display: inline-block;
   width: 50%;
   padding-left: 15px;
   float: none !important;
 }
-/* line 201, ../sass/_overrides.scss */
+/* line 197, ../sass/_overrides.scss */
 .logo img {
   width: 100%;
 }
 
-/* line 206, ../sass/_overrides.scss */
+/* line 202, ../sass/_overrides.scss */
 #branding {
   display: block;
   background-color: white;
   border-radius: 0 0 10px 10px;
 }
 
-/* line 212, ../sass/_overrides.scss */
+/* line 208, ../sass/_overrides.scss */
 #left-sidebar {
   background-color: #e5eeff;
   border-radius: 10px 0 0 10px;
 }
+/* line 212, ../sass/_overrides.scss */
+#left-sidebar .block {
+  padding: 20px 0;
+  border-bottom: solid 1px #80aaff;
+}
+/* line 216, ../sass/_overrides.scss */
+#left-sidebar .block .field--name-body {
+  margin-bottom: 0;
+}
 
-/* line 217, ../sass/_overrides.scss */
+/* line 222, ../sass/_overrides.scss */
 #content {
   background-color: white;
   border-radius: 0 10px 10px 0;
 }
-
-/* line 222, ../sass/_overrides.scss */
-#block-mdc-search {
-  margin: 15px 0;
+/* line 226, ../sass/_overrides.scss */
+#content .field--name-body {
+  margin: 0 0 15px;
 }
 
-/* line 227, ../sass/_overrides.scss */
+/* line 232, ../sass/_overrides.scss */
+#block-mdc-search .form-group {
+  margin: 0;
+}
+
+/* line 238, ../sass/_overrides.scss */
+#block-bookcontents > ul {
+  margin-bottom: 0;
+}
+/* line 242, ../sass/_overrides.scss */
 #block-bookcontents .top-page {
   font-weight: bold;
 }
-/* line 231, ../sass/_overrides.scss */
+/* line 246, ../sass/_overrides.scss */
 #block-bookcontents .current-page {
   color: #c00;
   font-weight: bold;
 }
-/* line 236, ../sass/_overrides.scss */
+/* line 251, ../sass/_overrides.scss */
 #block-bookcontents .unpublished-page {
   color: silver;
 }
-/* line 240, ../sass/_overrides.scss */
+/* line 255, ../sass/_overrides.scss */
 #block-bookcontents a:hover {
   color: red;
 }
 
-/* line 245, ../sass/_overrides.scss */
+/* line 261, ../sass/_overrides.scss */
+#block-imrs img {
+  width: 100%;
+}
+
+/* line 266, ../sass/_overrides.scss */
 .alert {
   margin: 15px 0;
 }
 
-/* line 249, ../sass/_overrides.scss */
+/* line 270, ../sass/_overrides.scss */
 ol.breadcrumb {
   margin: 15px 0;
   padding: 0;
 }
 
-/* line 254, ../sass/_overrides.scss */
+/* line 275, ../sass/_overrides.scss */
 ul.links {
   margin: 25px 0 5px;
 }
 
-/* line 259, ../sass/_overrides.scss */
-#block-mdc-socialicons p {
+/* line 279, ../sass/_overrides.scss */
+#social-icons {
   margin: 10px 0;
 }
-/* line 263, ../sass/_overrides.scss */
-#block-mdc-socialicons a {
+/* line 282, ../sass/_overrides.scss */
+#social-icons p {
+  margin: 0;
+}
+/* line 286, ../sass/_overrides.scss */
+#social-icons a {
   display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 4px 2px;
+}
+/* line 293, ../sass/_overrides.scss */
+#social-icons img {
+  width: 40px;
   height: 40px;
 }
-/* line 268, ../sass/_overrides.scss */
-#block-mdc-socialicons img {
-  width: 40px;
-  margin: 2px;
-}
 
-/* line 274, ../sass/_overrides.scss */
+/* line 299, ../sass/_overrides.scss */
 nav.tabs {
   margin: 15px 0;
 }
 
-/* line 278, ../sass/_overrides.scss */
+/* line 303, ../sass/_overrides.scss */
 article.book {
   margin: 15px 0;
 }
 
-/* line 282, ../sass/_overrides.scss */
+/* line 307, ../sass/_overrides.scss */
 #block-copyrightnotice {
   margin-top: 15px;
 }
