@@ -17,12 +17,22 @@
 // jQuery UI style overrides.
 @import "jquery-ui/autocomplete";
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Colours
+
 $paleBlue: #e5eeff;
 $lighterBlue: #80aaff;
 $lightBlue: #05f;
 $darkBlue: #000040;
+$paleOrange: #ffdfbf;
 $orange: #ff8200;
 $red: #c00;
+$pink: #ffe5f2;
+$paleGreen: #e5ffe5;
+$paleYellow: #ffffe5;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Elements
 
 body {
   background-color: $darkBlue;
@@ -55,7 +65,15 @@ ol, ul {
   }
 }
 
-// Page header.
+sup,
+sub {
+  line-height: 0;
+  font-size: 10px;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Header
+
 .page-header {
   margin: 15px 0;
   padding: 0;
@@ -65,7 +83,9 @@ ol, ul {
   padding: 0;
 }
 
-// Footer.
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Footer
+
 .footer {
   background-color: $darkBlue;
   color: white;
@@ -82,34 +102,39 @@ ol, ul {
   }
 }
 
-// Paragraphs.
-p:last-child,
-.form-group:last-child,
-.panel:last-child {
-  margin-bottom: 0;
-}
+//// Paragraphs.
+//p:last-child,
+//.form-group:last-child,
+//.panel:last-child {
+//  margin-bottom: 0;
+//}
+//
+//// Help region.
+//.region-help {
+//  > .glyphicon {
+//    font-size: $font-size-large;
+//    float: left;
+//    margin: -0.05em 0.5em 0 0;
+//  }
+//  .block {
+//    overflow: hidden;
+//  }
+//}
+//
+//.help-block,
+//.control-group
+//.help-inline {
+//  color: $gray-light;
+//  font-size: 12px;
+//  margin: 5px 0 10px;
+//  padding: 0;
+//  &:first-child {
+//    margin-top: 0;
+//  }
+//}
 
-// Help region.
-.region-help {
-  > .glyphicon {
-    font-size: $font-size-large;
-    float: left;
-    margin: -0.05em 0.5em 0 0;
-  }
-  .block {
-    overflow: hidden;
-  }
-}
-
-.help-block, .control-group .help-inline {
-  color: $gray-light;
-  font-size: 12px;
-  margin: 5px 0 10px;
-  padding: 0;
-  &:first-child {
-    margin-top: 0;
-  }
-}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Blocks
 
 #block-mdc-main-menu {
   margin-left: 10px;
@@ -133,44 +158,6 @@ p:last-child,
   }
 }
 
-.author {
-  display: none;
-  //font-size: 12px;
-  //color: #999;
-  //margin: 0 0 15px;
-  //font-style: italic;
-  //background-color: $paleBlue;
-  //padding: 5px;
-  //border-radius: 5px;
-}
-
-.book-nav {
-  background-color: $paleBlue;
-  padding: 5px;
-  border-radius: 5px;
-  margin-bottom: 15px;
-
-  table {
-    width: 100%;
-  }
-
-  .prev-page {
-    text-align: left;
-  }
-
-  .up-page {
-    text-align: center;
-  }
-
-  .next-page {
-    text-align: right;
-  }
-}
-
-.breadcrumb {
-  background-color: transparent;
-}
-
 #block-booknavigation {
   margin: 15px 0;
 
@@ -184,51 +171,6 @@ p:last-child,
 
     > li > a {
       font-weight: bold;
-    }
-  }
-}
-
-.logo {
-  display: inline-block;
-  width: 50%;
-  padding-left: 15px;
-  float: none !important;
-
-  img {
-    width: 100%;
-  }
-}
-
-#branding {
-  display: block;
-  background-color: white;
-  border-radius: 0 0 10px 10px;
-}
-
-#left-sidebar {
-  background-color: $paleBlue;
-  border-radius: 10px 0 0 10px;
-
-  .block {
-    padding: 20px 0;
-    border-bottom: solid 1px $lighterBlue;
-
-    .field--name-body {
-      margin-bottom: 0;
-    }
-  }
-}
-
-#content {
-  background-color: white;
-  border-radius: 0 10px 10px 0;
-
-  .field--name-body {
-    margin: 0 0 15px;
-
-    img {
-      margin: auto;
-      max-width: 100%;
     }
   }
 }
@@ -263,6 +205,96 @@ p:last-child,
 }
 
 #block-imrs {
+  img {
+    width: 100%;
+  }
+}
+
+#block-copyrightnotice {
+  margin: 15px 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Sections
+
+#branding {
+  display: block;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+}
+
+#left-sidebar {
+  background-color: $paleBlue;
+  border-radius: 10px 0 0 10px;
+
+  .block {
+    padding: 20px 0;
+    border-bottom: solid 1px $lighterBlue;
+
+    .field--name-body {
+      margin-bottom: 0;
+    }
+  }
+}
+
+#content {
+  background-color: white;
+  border-radius: 0 10px 10px 0;
+
+  .field--name-body {
+    margin: 0 0 15px;
+
+    img {
+      margin: auto;
+      max-width: 100%;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Chunks
+
+.author {
+  display: none;
+}
+
+.book-nav {
+  background-color: $paleBlue;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+
+  table {
+    width: 100%;
+  }
+
+  .prev-page {
+    text-align: left;
+  }
+
+  .up-page {
+    text-align: center;
+  }
+
+  .next-page {
+    text-align: right;
+  }
+}
+
+.breadcrumb {
+  background-color: transparent;
+}
+
+.logo {
+  display: inline-block;
+  width: 50%;
+  padding-left: 15px;
+  float: none !important;
+
   img {
     width: 100%;
   }
@@ -309,6 +341,68 @@ article.book {
   margin: 15px 0;
 }
 
-#block-copyrightnotice {
-  margin: 15px 0;
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Tables
+
+.field--name-body {
+  table {
+    margin: 10px auto;
+  }
+
+  caption {
+    color: black;
+    font-style: italic;
+  }
+
+  td,
+  th {
+    border: solid 1px silver;
+    padding: 5px;
+  }
+
+  thead tr,
+  th {
+    font-weight: bold;
+    background-color: $paleBlue;
+  }
+
+  tfoot tr {
+    font-weight: bold;
+    background-color: $paleOrange;
+  }
+}
+
+tr.terrestrial {
+  font-weight: bold;
+  background-color: $paleGreen;
+}
+
+tr.satellite {
+  background-color: $pink;
+}
+
+tr.dwarf {
+  font-style: italic;
+  background-color: $paleYellow;
+}
+
+tr.major {
+  background-color: $paleGreen;
+}
+
+tr.minor {
+  background-color: $paleYellow;
+}
+
+td.num,
+th.num {
+  text-align: right;
+}
+
+tr.hydrogen {
+  background-color: $paleYellow;
+}
+
+tr.helium {
+  background-color: $pink;
 }
