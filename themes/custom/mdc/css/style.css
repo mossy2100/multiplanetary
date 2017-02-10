@@ -9781,3 +9781,8 @@ nav.tabs {
 article.book {
   margin: 15px 0;
 }
+
+/* line 265, ../sass/_overrides.scss */
+#block-copyrightnotice {
+  margin-top: 15px;
+}
