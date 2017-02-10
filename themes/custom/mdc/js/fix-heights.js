@@ -12,7 +12,7 @@
     var leftSidebarHeight = leftSidebar.height();
     var windowHeight = $(window).height();
     var headerHeight = $('#header').height();
-    var footerHeight = $('footer').height();
+    var footerHeight = $('.footer').height();
     var toolbarHeight = $('#toolbar-administration').size() ? 78 : 0;
     var minContentHeight = windowHeight - toolbarHeight - headerHeight - footerHeight;
 

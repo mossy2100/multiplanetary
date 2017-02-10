@@ -116,6 +116,22 @@ class BookContentsBlock extends BlockBase implements ContainerFactoryPluginInter
       '#description'   => $this->t("If <em>Show block on all pages</em> is selected, the block will contain the automatically generated menus for all of the site's books. If <em>Show block only on book pages</em> is selected, the block will contain only the one menu corresponding to the current page's book. In this case, if the current page is not in a book, no block will be displayed. The <em>Page specific visibility settings</em> or other visibility settings can be used in addition to selectively display this block."),
     ];
 
+    $books = db_query("select b.bid, n.title
+      from book b
+      left join node_field_data n on b.nid = n.nid
+      where b.pid = 0
+    ");
+    $book_options = [];
+    foreach ($books as $book) {
+      $book_options[$book->bid] = $book->title;
+    }
+    $form['bid'] = [
+      '#type'          => 'select',
+      '#title'         => $this->t('Book to show contents of'),
+      '#options'       => $book_options,
+      '#description'   => $this->t("Select which book to show the contents of in the block."),
+    ];
+
     return $form;
   }
 
@@ -124,6 +140,7 @@ class BookContentsBlock extends BlockBase implements ContainerFactoryPluginInter
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
     $this->configuration['block_mode'] = $form_state->getValue('book_block_mode');
+    $this->configuration['bid'] = $form_state->getValue('bid');
   }
 
   /**
@@ -136,10 +153,12 @@ class BookContentsBlock extends BlockBase implements ContainerFactoryPluginInter
    *
    * @return string
    */
-  protected function itemHtml($nid, $bid) {
-    // Get the page object and check it's included.
+  protected function itemHtml($nid) {
+    // Get the page object.
     $page = $this->pages[$nid];
-    if (!$page->include) {
+
+    // Ignore unpublished pages.
+    if (!$page->status) {
       return '';
     }
 
@@ -148,34 +167,30 @@ class BookContentsBlock extends BlockBase implements ContainerFactoryPluginInter
     $current_nid = (bool) $node ? $node->id() : 0;
 
     $html = '';
+    $bid = $this->configuration['bid'];
 
-    if ($page->status) {
-      // Get alias.
-      $alias = \Drupal::service('path.alias_manager')->getAliasByPath("/node/$nid");
-      // Published page.
-      $html .= "<a href='$alias' class='";
-      if ($nid == $bid) {
-        $html .= " top-page";
-      }
-      if ($nid == $current_nid) {
-        $html .= " current-page";
-      }
-      $html .= "'>". $page->title . "</a>\n";
-    }
-    else {
-      // Unpublished page.
-      $html .= "<span class='unpublished-page'>{$page->title}</span>";
-    }
+    // Get alias.
+    $alias = \Drupal::service('path.alias_manager')->getAliasByPath("/node/$nid");
 
-    // Children.
+    // Render link.
+    $html .= "<a href='$alias' class='";
+    if ($nid == $bid) {
+      $html .= " top-page";
+    }
+    if ($nid == $current_nid) {
+      $html .= " current-page";
+    }
+    $html .= "'>". $page->title . "</a>\n";
+
+    // Render children.
     $list_started = FALSE;
     foreach ($this->pages as $page2) {
-      if ($page2->pid == $nid && $page2->include) {
+      if ($page2->status && $page2->pid == $nid) {
         if (!$list_started) {
           $html .= "<ul>\n";
           $list_started = TRUE;
         }
-        $html .= "<li>" . $this->itemHtml($page2->nid, $bid) . "</li>\n";
+        $html .= "<li>" . $this->itemHtml($page2->nid) . "</li>\n";
       }
     }
     if ($list_started) {
@@ -189,20 +204,20 @@ class BookContentsBlock extends BlockBase implements ContainerFactoryPluginInter
    * {@inheritdoc}
    */
   public function build() {
-    $bid = 9;
+    $bid = $this->configuration['bid'];
     $this->pages = [];
     $rs = db_query("
-      select b.nid, b.pid, n.title, n.status, f.field_include_in_contents_value as include
+      select b.nid, b.pid, n.title, n.status
       from book b
       left join node_field_data n on b.nid = n.nid
-      left join node__field_include_in_contents f on n.nid = f.entity_id
+      where bid = :bid
       order by pid, weight
-    ");
+    ", [':bid' => $bid]);
     foreach ($rs as $rec) {
       $this->pages[$rec->nid] = $rec;
     }
     return [
-      '#markup' => $this->itemHtml($bid, $bid),
+      '#markup' => $this->itemHtml($bid),
     ];
   }
 

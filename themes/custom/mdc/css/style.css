@@ -9537,229 +9537,250 @@ body.toolbar-fixed.toolbar-vertical.toolbar-tray-open.toolbar-fixed .toolbar-tra
 /* line 26, ../sass/_overrides.scss */
 body {
   background-color: #000040;
+  margin-top: 0;
 }
 
-/* line 30, ../sass/_overrides.scss */
+/* line 31, ../sass/_overrides.scss */
 h1, h2, h3, h4, h5, h6 {
-  color: #f00;
+  color: #c00;
 }
 
-/* line 34, ../sass/_overrides.scss */
+/* line 35, ../sass/_overrides.scss */
 a {
   color: #05f;
 }
-/* line 37, ../sass/_overrides.scss */
+/* line 38, ../sass/_overrides.scss */
 a:active, a:focus, a:visited {
   color: #05f;
 }
-/* line 43, ../sass/_overrides.scss */
+/* line 44, ../sass/_overrides.scss */
 a:hover {
   color: #05f;
   text-decoration: underline;
 }
 
-/* line 49, ../sass/_overrides.scss */
+/* line 50, ../sass/_overrides.scss */
 ol, ul {
   padding-left: 1.5em;
 }
-/* line 51, ../sass/_overrides.scss */
+/* line 52, ../sass/_overrides.scss */
 .popover ol:last-child, .popover ul:last-child {
   margin-bottom: 0;
 }
 
-/* line 57, ../sass/_overrides.scss */
+/* line 58, ../sass/_overrides.scss */
 .page-header {
   margin: 15px 0;
   padding: 0;
 }
 
-/* line 62, ../sass/_overrides.scss */
+/* line 63, ../sass/_overrides.scss */
 #header {
   padding: 0;
 }
 
-/* line 67, ../sass/_overrides.scss */
+/* line 68, ../sass/_overrides.scss */
 .footer {
-  background-color: #f00;
+  background-color: #c00;
 }
-/* line 70, ../sass/_overrides.scss */
+/* line 71, ../sass/_overrides.scss */
 .footer .nav > li > a {
   color: white;
   display: inline-block;
 }
-/* line 74, ../sass/_overrides.scss */
+/* line 75, ../sass/_overrides.scss */
 .footer .nav > li > a:hover {
   text-decoration: underline;
   background-color: transparent;
 }
 
-/* line 82, ../sass/_overrides.scss */
+/* line 83, ../sass/_overrides.scss */
 p:last-child,
 .form-group:last-child,
 .panel:last-child {
   margin-bottom: 0;
 }
 
-/* line 90, ../sass/_overrides.scss */
+/* line 91, ../sass/_overrides.scss */
 .region-help > .glyphicon {
   font-size: 18px;
   float: left;
   margin: -0.05em 0.5em 0 0;
 }
-/* line 95, ../sass/_overrides.scss */
+/* line 96, ../sass/_overrides.scss */
 .region-help .block {
   overflow: hidden;
 }
 
-/* line 100, ../sass/_overrides.scss */
+/* line 101, ../sass/_overrides.scss */
 .help-block, .control-group .help-inline {
   color: #777777;
   font-size: 12px;
   margin: 5px 0 10px;
   padding: 0;
 }
-/* line 105, ../sass/_overrides.scss */
+/* line 106, ../sass/_overrides.scss */
 .help-block:first-child, .control-group .help-inline:first-child {
   margin-top: 0;
 }
 
-/* line 110, ../sass/_overrides.scss */
+/* line 111, ../sass/_overrides.scss */
 .logo {
-  width: 20%;
+  width: 50%;
   padding-left: 15px;
 }
-/* line 114, ../sass/_overrides.scss */
+/* line 115, ../sass/_overrides.scss */
 .logo img {
   width: 100%;
 }
 
-/* line 120, ../sass/_overrides.scss */
+/* line 121, ../sass/_overrides.scss */
 #block-mdc-main-menu > ul {
   background-color: #000040;
   width: 100%;
 }
-/* line 124, ../sass/_overrides.scss */
+/* line 125, ../sass/_overrides.scss */
 #block-mdc-main-menu > ul a {
   color: white;
 }
-/* line 128, ../sass/_overrides.scss */
+/* line 129, ../sass/_overrides.scss */
 #block-mdc-main-menu > ul > li > a.is-active {
   background-color: #05f;
 }
-/* line 132, ../sass/_overrides.scss */
+/* line 133, ../sass/_overrides.scss */
 #block-mdc-main-menu > ul > li > a:hover,
 #block-mdc-main-menu > ul > li > a:focus {
-  background-color: #f00;
+  background-color: #c00;
 }
 
-/* line 139, ../sass/_overrides.scss */
-div.author {
+/* line 140, ../sass/_overrides.scss */
+.author {
   font-size: 12px;
   color: #999;
-  margin-bottom: 1rem;
+  margin: 0 0 15px;
   font-style: italic;
   background-color: #e5eeff;
   padding: 5px;
   border-radius: 5px;
 }
 
-/* line 149, ../sass/_overrides.scss */
+/* line 150, ../sass/_overrides.scss */
 .book-nav {
   background-color: #e5eeff;
   padding: 5px;
   border-radius: 5px;
   margin-bottom: 15px;
 }
-/* line 155, ../sass/_overrides.scss */
+/* line 156, ../sass/_overrides.scss */
 .book-nav table {
   width: 100%;
 }
-/* line 159, ../sass/_overrides.scss */
+/* line 160, ../sass/_overrides.scss */
 .book-nav .prev-page {
   text-align: left;
 }
-/* line 163, ../sass/_overrides.scss */
+/* line 164, ../sass/_overrides.scss */
 .book-nav .up-page {
   text-align: center;
 }
-/* line 167, ../sass/_overrides.scss */
+/* line 168, ../sass/_overrides.scss */
 .book-nav .next-page {
   text-align: right;
 }
 
-/* line 172, ../sass/_overrides.scss */
+/* line 173, ../sass/_overrides.scss */
 .field--name-body {
   margin: 15px 0;
 }
 
-/* line 176, ../sass/_overrides.scss */
+/* line 177, ../sass/_overrides.scss */
 .breadcrumb {
   background-color: transparent;
 }
 
-/* line 180, ../sass/_overrides.scss */
+/* line 181, ../sass/_overrides.scss */
 #block-booknavigation {
   margin: 15px 0;
 }
-/* line 183, ../sass/_overrides.scss */
+/* line 184, ../sass/_overrides.scss */
 #block-booknavigation > h2 {
   display: none;
 }
-/* line 187, ../sass/_overrides.scss */
+/* line 188, ../sass/_overrides.scss */
 #block-booknavigation nav > ul {
   padding-left: 0;
   list-style-type: none;
 }
-/* line 191, ../sass/_overrides.scss */
+/* line 192, ../sass/_overrides.scss */
 #block-booknavigation nav > ul > li > a {
   font-weight: bold;
 }
 
-/* line 197, ../sass/_overrides.scss */
+/* line 198, ../sass/_overrides.scss */
 .main-container {
   background-color: white;
 }
 
-/* line 201, ../sass/_overrides.scss */
+/* line 202, ../sass/_overrides.scss */
 #left-sidebar {
   background-color: #e5eeff;
 }
 
-/* line 205, ../sass/_overrides.scss */
+/* line 206, ../sass/_overrides.scss */
 #block-mdc-search {
   margin: 15px 0;
 }
 
-/* line 210, ../sass/_overrides.scss */
+/* line 211, ../sass/_overrides.scss */
 #block-bookcontents .top-page {
   font-weight: bold;
 }
-/* line 214, ../sass/_overrides.scss */
+/* line 215, ../sass/_overrides.scss */
 #block-bookcontents .current-page {
-  color: #f00;
+  color: #c00;
   font-weight: bold;
 }
-/* line 219, ../sass/_overrides.scss */
+/* line 220, ../sass/_overrides.scss */
 #block-bookcontents .unpublished-page {
   color: silver;
 }
-/* line 223, ../sass/_overrides.scss */
+/* line 224, ../sass/_overrides.scss */
 #block-bookcontents a:hover {
   color: red;
 }
 
-/* line 228, ../sass/_overrides.scss */
+/* line 229, ../sass/_overrides.scss */
 .alert {
   margin: 15px 0;
 }
 
-/* line 232, ../sass/_overrides.scss */
+/* line 233, ../sass/_overrides.scss */
 ol.breadcrumb {
   margin: 15px 0;
   padding: 0;
 }
 
-/* line 237, ../sass/_overrides.scss */
+/* line 238, ../sass/_overrides.scss */
 ul.links {
   margin: 25px 0 5px;
+}
+
+/* line 243, ../sass/_overrides.scss */
+#block-mdc-socialicons p {
+  margin: 10px 0;
+}
+/* line 247, ../sass/_overrides.scss */
+#block-mdc-socialicons img {
+  width: 40px;
+  margin: 2px;
+}
+
+/* line 253, ../sass/_overrides.scss */
+nav.tabs {
+  margin: 15px 0;
+}
+
+/* line 257, ../sass/_overrides.scss */
+article.book {
+  margin: 15px 0;
 }
