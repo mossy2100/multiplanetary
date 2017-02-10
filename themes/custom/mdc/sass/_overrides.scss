@@ -58,11 +58,9 @@ a {
   }
 }
 
-ol, ul {
-  padding-left: 1.5em;
-  .popover &:last-child {
-    margin-bottom: 0;
-  }
+ol,
+ul {
+  padding-left: 20px;
 }
 
 sup,
@@ -350,7 +348,6 @@ article.book {
   }
 
   caption {
-    color: black;
     font-style: italic;
   }
 
