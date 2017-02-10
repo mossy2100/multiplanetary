@@ -9745,87 +9745,92 @@ p:last-child,
 #content .field--name-body {
   margin: 0 0 15px;
 }
+/* line 229, ../sass/_overrides.scss */
+#content .field--name-body img {
+  margin: auto;
+  max-width: 100%;
+}
 
-/* line 232, ../sass/_overrides.scss */
+/* line 237, ../sass/_overrides.scss */
 #block-mdc-search .form-group {
   margin: 0;
 }
 
-/* line 238, ../sass/_overrides.scss */
+/* line 243, ../sass/_overrides.scss */
 #block-bookcontents > ul {
   margin-bottom: 0;
 }
-/* line 242, ../sass/_overrides.scss */
+/* line 247, ../sass/_overrides.scss */
 #block-bookcontents .top-page {
   font-weight: bold;
 }
-/* line 246, ../sass/_overrides.scss */
+/* line 251, ../sass/_overrides.scss */
 #block-bookcontents .current-page {
   color: #c00;
   font-weight: bold;
 }
-/* line 251, ../sass/_overrides.scss */
+/* line 256, ../sass/_overrides.scss */
 #block-bookcontents .unpublished-page {
   color: silver;
 }
-/* line 255, ../sass/_overrides.scss */
+/* line 260, ../sass/_overrides.scss */
 #block-bookcontents a:hover {
   color: red;
 }
 
-/* line 261, ../sass/_overrides.scss */
+/* line 266, ../sass/_overrides.scss */
 #block-imrs img {
   width: 100%;
 }
 
-/* line 266, ../sass/_overrides.scss */
+/* line 271, ../sass/_overrides.scss */
 .alert {
   margin: 15px 0;
 }
 
-/* line 270, ../sass/_overrides.scss */
+/* line 275, ../sass/_overrides.scss */
 ol.breadcrumb {
   margin: 15px 0;
   padding: 0;
 }
 
-/* line 275, ../sass/_overrides.scss */
+/* line 280, ../sass/_overrides.scss */
 ul.links {
   margin: 25px 0 5px;
 }
 
-/* line 279, ../sass/_overrides.scss */
+/* line 284, ../sass/_overrides.scss */
 #social-icons {
   margin: 10px 0;
 }
-/* line 282, ../sass/_overrides.scss */
+/* line 287, ../sass/_overrides.scss */
 #social-icons p {
   margin: 0;
 }
-/* line 286, ../sass/_overrides.scss */
+/* line 291, ../sass/_overrides.scss */
 #social-icons a {
   display: inline-block;
   width: 40px;
   height: 40px;
   margin: 4px 2px;
 }
-/* line 293, ../sass/_overrides.scss */
+/* line 298, ../sass/_overrides.scss */
 #social-icons img {
   width: 40px;
   height: 40px;
 }
 
-/* line 299, ../sass/_overrides.scss */
+/* line 304, ../sass/_overrides.scss */
 nav.tabs {
   margin: 15px 0;
 }
 
-/* line 303, ../sass/_overrides.scss */
+/* line 308, ../sass/_overrides.scss */
 article.book {
   margin: 15px 0;
 }
 
-/* line 307, ../sass/_overrides.scss */
+/* line 312, ../sass/_overrides.scss */
 #block-copyrightnotice {
-  margin-top: 15px;
+  margin: 15px 0;
 }

@@ -225,6 +225,11 @@ p:last-child,
 
   .field--name-body {
     margin: 0 0 15px;
+
+    img {
+      margin: auto;
+      max-width: 100%;
+    }
   }
 }
 
@@ -305,5 +310,5 @@ article.book {
 }
 
 #block-copyrightnotice {
-  margin-top: 15px;
+  margin: 15px 0;
 }
