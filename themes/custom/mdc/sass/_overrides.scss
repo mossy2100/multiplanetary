@@ -111,16 +111,9 @@ p:last-child,
   }
 }
 
-.logo {
-  width: 50%;
-  padding-left: 15px;
-
-  img {
-    width: 100%;
-  }
-}
-
 #block-mdc-main-menu {
+  margin-left: 10px;
+
   > ul {
     background-color: $darkBlue;
     width: 100%;
@@ -199,12 +192,31 @@ p:last-child,
   }
 }
 
-.main-container {
+.logo {
+  display: inline-block;
+  width: 50%;
+  padding-left: 15px;
+  float: none !important;
+
+  img {
+    width: 100%;
+  }
+}
+
+#branding {
+  display: block;
   background-color: white;
+  border-radius: 0 0 10px 10px;
 }
 
 #left-sidebar {
   background-color: $paleBlue;
+  border-radius: 10px 0 0 10px;
+}
+
+#content {
+  background-color: white;
+  border-radius: 0 10px 10px 0;
 }
 
 #block-mdc-search {
@@ -246,6 +258,11 @@ ul.links {
 #block-mdc-socialicons {
   p {
     margin: 10px 0;
+  }
+
+  a {
+    display: inline-block;
+    height: 40px;
   }
 
   img {
