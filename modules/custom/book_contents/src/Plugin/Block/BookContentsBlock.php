@@ -3,13 +3,7 @@
 namespace Drupal\book_contents\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\book\BookManagerInterface;
-use Drupal\Core\Cache\Cache;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Drupal\Core\Entity\EntityStorageInterface;
 
 /**
  * Provides a 'Book contents' block.
@@ -20,28 +14,7 @@ use Drupal\Core\Entity\EntityStorageInterface;
  *   category = @Translation("Menus")
  * )
  */
-class BookContentsBlock extends BlockBase implements ContainerFactoryPluginInterface {
-
-  /**
-   * The request object.
-   *
-   * @var \Symfony\Component\HttpFoundation\RequestStack
-   */
-  protected $requestStack;
-
-  /**
-   * The book manager.
-   *
-   * @var \Drupal\book\BookManagerInterface
-   */
-  protected $bookManager;
-
-  /**
-   * The node storage.
-   *
-   * @var \Drupal\Core\Entity\EntityStorageInterface
-   */
-  protected $nodeStorage;
+class BookContentsBlock extends BlockBase {
 
   /**
    * The book's pages.
@@ -49,47 +22,6 @@ class BookContentsBlock extends BlockBase implements ContainerFactoryPluginInter
    * @var array
    */
   protected $pages;
-
-  /**
-   * Constructs a new BookContentsBlock instance.
-   *
-   * @param array $configuration
-   *   A configuration array containing information about the plugin instance.
-   * @param string $plugin_id
-   *   The plugin_id for the plugin instance.
-   * @param mixed $plugin_definition
-   *   The plugin implementation definition.
-   * @param \Symfony\Component\HttpFoundation\RequestStack $request_stack
-   *   The request stack object.
-   * @param \Drupal\book\BookManagerInterface $book_manager
-   *   The book manager.
-   * @param \Drupal\Core\Entity\EntityStorageInterface $node_storage
-   *   The node storage.
-   */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition,
-    RequestStack $request_stack, BookManagerInterface $book_manager,
-    EntityStorageInterface $node_storage) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition);
-
-    $this->requestStack = $request_stack;
-    $this->bookManager = $book_manager;
-    $this->nodeStorage = $node_storage;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id,
-    $plugin_definition) {
-    return new static(
-      $configuration,
-      $plugin_id,
-      $plugin_definition,
-      $container->get('request_stack'),
-      $container->get('book.manager'),
-      $container->get('entity.manager')->getStorage('node')
-    );
-  }
 
   /**
    * {@inheritdoc}
@@ -145,11 +77,10 @@ class BookContentsBlock extends BlockBase implements ContainerFactoryPluginInter
 
   /**
    * Get the HTML for a book contents list item.
+   * Recursive function.
    *
    * @param int $nid
    *   The nid ID of the page.
-   * @param int $bid
-   *   The bid of the book.
    *
    * @return string
    */
@@ -204,6 +135,7 @@ class BookContentsBlock extends BlockBase implements ContainerFactoryPluginInter
    * {@inheritdoc}
    */
   public function build() {
+    // Get the pages.
     $bid = $this->configuration['bid'];
     $this->pages = [];
     $rs = db_query("
@@ -216,24 +148,10 @@ class BookContentsBlock extends BlockBase implements ContainerFactoryPluginInter
     foreach ($rs as $rec) {
       $this->pages[$rec->nid] = $rec;
     }
+
+    // Build the HTML.
     return [
       '#markup' => $this->itemHtml($bid),
     ];
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getCacheContexts() {
-    return Cache::mergeContexts(parent::getCacheContexts(), ['route.book_contents']);
-  }
-
-  /**
-   * {@inheritdoc}
-   *
-   * @todo Make cacheable in https://www.drupal.org/node/2483181
-   */
-  public function getCacheMaxAge() {
-    return 0;
   }
 }

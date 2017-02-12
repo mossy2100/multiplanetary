@@ -8,15 +8,18 @@
     var content = $('#content');
     var leftSidebar = $('#left-sidebar');
 
+    // Get the heights.
     var contentHeight = content.height();
     var leftSidebarHeight = leftSidebar.height();
+
+    // Get the minimum content height to span the full height of the viewport.
     var windowHeight = $(window).height();
     var headerHeight = $('#header').height();
     var footerHeight = $('.footer').height();
     var toolbarHeight = $('#toolbar-administration').size() ? 78 : 0;
     var minContentHeight = windowHeight - toolbarHeight - headerHeight - footerHeight;
 
-    // Get the desired outer height of the left sidebar and the content.
+    // Get the desired heights.
     var height = Math.max(contentHeight, leftSidebarHeight, minContentHeight);
 
     // Set the heights.
@@ -24,6 +27,6 @@
     content.height(height);
   }
 
-  $(fixHeights);
+  $(window).load(fixHeights);
 
 })(jQuery);

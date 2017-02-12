@@ -1,12 +1,9 @@
 name: Book Contents
-type: module
 description: 'Allows users to create a block showing all pages in a book.'
 package: Core
-# version: VERSION
-# core: 8.x
-dependencies:
-  - book
 
-version: '8.2.5'
+type: module
 core: '8.x'
-project: 'drupal'
+
+dependencies:
+  - drupal:book

@@ -60,7 +60,7 @@ a {
 
 ol,
 ul {
-  padding-left: 20px;
+  padding-left: 30px;
 }
 
 sup,
@@ -100,42 +100,11 @@ sub {
   }
 }
 
-//// Paragraphs.
-//p:last-child,
-//.form-group:last-child,
-//.panel:last-child {
-//  margin-bottom: 0;
-//}
-//
-//// Help region.
-//.region-help {
-//  > .glyphicon {
-//    font-size: $font-size-large;
-//    float: left;
-//    margin: -0.05em 0.5em 0 0;
-//  }
-//  .block {
-//    overflow: hidden;
-//  }
-//}
-//
-//.help-block,
-//.control-group
-//.help-inline {
-//  color: $gray-light;
-//  font-size: 12px;
-//  margin: 5px 0 10px;
-//  padding: 0;
-//  &:first-child {
-//    margin-top: 0;
-//  }
-//}
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Blocks
 
 #block-mdc-main-menu {
-  margin-left: 10px;
+  margin: 0 10px;
 
   > ul {
     background-color: $darkBlue;
@@ -243,18 +212,83 @@ sub {
     margin: 0 0 15px;
 
     img {
-      margin: auto;
+      text-align: center;
+      margin: 0 auto 10px;
       max-width: 100%;
     }
 
     li {
       margin: 10px 0;
     }
+
+    table {
+      margin: 10px auto;
+    }
+
+    caption {
+      font-style: italic;
+      color: black;
+    }
+
+    td,
+    th {
+      border: solid 1px silver;
+      padding: 5px;
+    }
+
+    thead tr,
+    th {
+      font-weight: bold;
+      background-color: $paleBlue;
+    }
+
+    tfoot tr {
+      font-weight: bold;
+      background-color: $paleOrange;
+    }
   }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// Chunks
+// Table styles
+
+tr.terrestrial {
+  font-weight: bold;
+  background-color: $paleGreen;
+}
+
+tr.satellite {
+  background-color: $pink;
+}
+
+tr.dwarf {
+  font-style: italic;
+  background-color: $paleYellow;
+}
+
+tr.major {
+  background-color: $paleGreen;
+}
+
+tr.minor {
+  background-color: $paleYellow;
+}
+
+td.num,
+th.num {
+  text-align: right;
+}
+
+tr.hydrogen {
+  background-color: $paleYellow;
+}
+
+tr.helium {
+  background-color: $pink;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Miscellaneous
 
 .author {
   display: none;
@@ -339,67 +373,20 @@ article.book {
   margin: 15px 0;
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-// Tables
-
-.field--name-body {
-  table {
-    margin: 10px auto;
-  }
-
-  caption {
-    font-style: italic;
-  }
-
-  td,
-  th {
-    border: solid 1px silver;
-    padding: 5px;
-  }
-
-  thead tr,
-  th {
-    font-weight: bold;
-    background-color: $paleBlue;
-  }
-
-  tfoot tr {
-    font-weight: bold;
-    background-color: $paleOrange;
-  }
+.math {
+  margin-left: 20px;
 }
 
-tr.terrestrial {
-  font-weight: bold;
-  background-color: $paleGreen;
+span.tab {
+  display: inline-block;
+  width: 50px;
 }
 
-tr.satellite {
-  background-color: $pink;
+figure {
+  text-align: center;
+  margin: 0 auto 10px;
 }
 
-tr.dwarf {
-  font-style: italic;
-  background-color: $paleYellow;
-}
-
-tr.major {
-  background-color: $paleGreen;
-}
-
-tr.minor {
-  background-color: $paleYellow;
-}
-
-td.num,
-th.num {
-  text-align: right;
-}
-
-tr.hydrogen {
-  background-color: $paleYellow;
-}
-
-tr.helium {
-  background-color: $pink;
+figcaption {
+  text-align: center;
 }
