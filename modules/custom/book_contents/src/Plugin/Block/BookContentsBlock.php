@@ -152,6 +152,7 @@ class BookContentsBlock extends BlockBase {
     // Build the HTML.
     return [
       '#markup' => $this->itemHtml($bid),
+      '#cache' => FALSE,
     ];
   }
 }

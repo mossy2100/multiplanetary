@@ -205,6 +205,10 @@ sub {
     .field--name-body {
       margin-bottom: 0;
     }
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
 }
 
