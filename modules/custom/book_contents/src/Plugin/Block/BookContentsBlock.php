@@ -58,10 +58,10 @@ class BookContentsBlock extends BlockBase {
       $book_options[$book->bid] = $book->title;
     }
     $form['bid'] = [
-      '#type'          => 'select',
-      '#title'         => $this->t('Book to show contents of'),
-      '#options'       => $book_options,
-      '#description'   => $this->t("Select which book to show the contents of in the block."),
+      '#type'        => 'select',
+      '#title'       => $this->t('Book to show contents of'),
+      '#options'     => $book_options,
+      '#description' => $this->t("Select which book to show the contents of in the block."),
     ];
 
     return $form;
@@ -101,7 +101,8 @@ class BookContentsBlock extends BlockBase {
     $bid = $this->configuration['bid'];
 
     // Get alias.
-    $alias = \Drupal::service('path.alias_manager')->getAliasByPath("/node/$nid");
+    $alias = \Drupal::service('path.alias_manager')
+      ->getAliasByPath("/node/$nid");
 
     // Render link.
     $html .= "<a href='$alias' class='";
@@ -111,7 +112,7 @@ class BookContentsBlock extends BlockBase {
     if ($nid == $current_nid) {
       $html .= " current-page";
     }
-    $html .= "'>". $page->title . "</a>\n";
+    $html .= "'>" . $page->title . "</a>\n";
 
     // Render children.
     $list_started = FALSE;
@@ -152,7 +153,9 @@ class BookContentsBlock extends BlockBase {
     // Build the HTML.
     return [
       '#markup' => $this->itemHtml($bid),
-      '#cache' => FALSE,
+      '#cache'  => [
+        'disabled' => TRUE,
+      ],
     ];
   }
 }
