@@ -155,7 +155,6 @@ class BookContentsBlock extends BlockBase {
       '#markup' => $this->itemHtml($bid),
       '#cache'  => [
         'disabled' => TRUE,
-        'max_age'  => 0,
       ],
     ];
   }
