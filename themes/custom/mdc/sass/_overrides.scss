@@ -35,8 +35,12 @@ $paleYellow: #ffffe5;
 // Elements
 
 body {
-  background-color: $darkBlue;
   margin-top: 0;
+  background-image: url("../images/stars-tileable.jpg");
+
+  @media (min-width: 768px) {
+    margin-top: 20px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -70,6 +74,15 @@ sub {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+// Background
+
+#background-layer {
+  background-image: url("../images/hires-Mars-transparent-bg.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 // Header
 
 .page-header {
@@ -85,12 +98,10 @@ sub {
 // Footer
 
 .footer {
-  background-color: $darkBlue;
-  color: white;
+  color: black;
 
   a,
   .nav > li > a {
-    color: $lighterBlue;
     display: inline-block;
 
     &:hover {
@@ -190,17 +201,26 @@ sub {
 
 #branding {
   display: block;
-  background-color: white;
-  border-radius: 0 0 10px 10px;
+
+  img {
+    margin-top: 10px;
+  }
+
+  .navbar-text {
+    font-size: 20px;
+    color: white;
+    font-style: italic;
+    margin: 0 0 10px;
+  }
 }
 
-#left-sidebar {
+#left-sidebar,
+#right-sidebar {
   background-color: $paleBlue;
-  border-radius: 10px 0 0 10px;
 
   .block {
     padding: 20px 0;
-    border-bottom: solid 1px $lighterBlue;
+    border-bottom: solid 1px $darkBlue;
 
     .field--name-body {
       margin-bottom: 0;
@@ -212,9 +232,19 @@ sub {
   }
 }
 
+@media (min-width: 768px) {
+  #left-sidebar {
+    @include border-radius(10px 0 0 10px);
+  }
+
+  #right-sidebar {
+    @include border-radius(0 10px 10px 0);
+  }
+}
+
 #content {
   background-color: white;
-  border-radius: 0 10px 10px 0;
+  padding: 15px;
 
   .field--name-body {
     margin: 0 0 15px;
@@ -305,7 +335,7 @@ tr.helium {
 .book-nav {
   background-color: $paleBlue;
   padding: 5px;
-  border-radius: 5px;
+  @include border-radius(5px);
   margin-bottom: 15px;
 
   table {
@@ -330,9 +360,6 @@ tr.helium {
 }
 
 .logo {
-  display: inline-block;
-  width: 50%;
-  padding-left: 15px;
   float: none !important;
 
   img {
