@@ -21,22 +21,33 @@
 // Colours
 
 $paleBlue: #e5eeff;
-$lighterBlue: #80aaff;
-$lightBlue: #05f;
-$darkBlue: #000040;
+$lightBlue: #80aaff;
+$blue: royalblue;
+$darkBlue: #1a3ca2;
+
 $paleOrange: #ffdfbf;
 $orange: #ff8200;
-$red: #c00;
+
+$darkRed: #c00;
+$red: red;
 $pink: #ffe5f2;
+
 $paleGreen: #e5ffe5;
 $paleYellow: #ffffe5;
+
+$darkGrey: #222;
+$grey2: #444;
+$grey: #777;
+$paleGrey: #eee;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Elements
 
 body {
   margin-top: 0;
-  background-image: url("../images/stars-tileable.jpg");
+  background-color: $darkGrey;
+  //background-image: url('../images/blueprint-texture.jpg');
+  background-repeat: repeat;
 
   @media (min-width: 768px) {
     margin-top: 20px;
@@ -44,21 +55,22 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: $red;
+  color: $darkRed;
 }
 
 a {
-  color: $lightBlue;
+  color: $darkRed;
+
+  &:link,
+  &:visited {
+    color: $darkRed;
+  }
 
   &:active,
   &:focus,
-  &:visited {
-    color: $lightBlue;
-  }
-
   &:hover {
-    color: $lightBlue;
-    text-decoration: underline;
+    color: $darkBlue;
+    text-decoration: none;
   }
 }
 
@@ -74,14 +86,10 @@ sub {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// Background
+// Container
 
-#background-layer {
-  background-image: url("../images/hires-Mars-transparent-bg.png");
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center 20px;
+.main-container {
+  background-color: white;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -94,155 +102,130 @@ sub {
 
 #header {
   padding: 0;
+  //background-color: $paleGrey;
+  color: black;
+
+  #branding {
+    display: block;
+
+    img {
+      margin-top: 10px;
+    }
+
+    .navbar-text {
+      font-size: 20px;
+      float: none;
+      font-style: italic;
+      margin: 10px;
+    }
+  }
+
+  nav {
+    background-color: $grey2;
+
+    .navbar-nav {
+      float: none;
+      display: block;
+      margin: 0;
+
+      a {
+        font-weight: bold;
+        color: white;
+
+        &.is-active {
+          background-color: $darkRed;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: $darkBlue;
+        }
+      }
+    }
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Footer
 
 .footer {
+  //background-color: $darkGrey;
   color: white;
+  margin-bottom: 20px;
 
   a,
   .nav > li > a {
     display: inline-block;
+    color: $darkRed;
 
     &:hover {
-      text-decoration: underline;
-      background-color: transparent;
+      color: $red;
+    }
+  }
+
+  #block-imrs {
+    .field--name-body {
+      > a {
+        display: block;
+        text-align: center;
+      }
+
+      img {
+        width: 480px;
+        max-width: 100%;
+      }
     }
   }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// Blocks
+// Navigation
 
-#block-mdc-main-menu {
-  margin: 0 10px;
-
-  > ul {
-    background-color: $darkBlue;
-    width: 100%;
-
-    a {
-      color: white;
-    }
-
-    > li > a.is-active {
-      background-color: $lightBlue;
-    }
-
-    > li > a:hover,
-    > li > a:focus {
-      background-color: $red;
-    }
-  }
-}
-
-#block-booknavigation {
-  margin: 15px 0;
-
-  > h2 {
-    display: none;
-  }
-
-  nav > ul {
-    padding-left: 0;
-    list-style-type: none;
-
-    > li > a {
-      font-weight: bold;
-    }
-  }
-}
-
-#block-mdc-search {
-  .form-group {
-    margin: 0;
-  }
-}
-
+// Main contents menu in the left sidebar.
 #block-bookcontents {
   > ul {
     margin-bottom: 0;
   }
 
-  .top-page {
-    font-weight: bold;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
   }
 
-  .current-page {
-    color: $red;
-    font-weight: bold;
+  li {
+    li {
+      margin-left: 15px;
+    }
   }
 
-  .unpublished-page {
-    color: silver;
-  }
+  a {
+    display: block;
+    padding: 2px 4px;
+    border-radius: 2px;
 
-  a:hover {
-    color: red;
+    &:hover {
+      background-color: $paleGrey;
+      color: $darkBlue;
+    }
+
+    &.current-page {
+      background-color: $paleGrey;
+    }
+
+    &.unpublished-page {
+      color: silver;
+    }
   }
 }
 
-#block-imrs {
-  img {
-    width: 100%;
-  }
-}
-
-#block-copyrightnotice {
+nav.tabs {
   margin: 15px 0;
-}
-
-#block-mdc-socialicons {
-  padding-bottom: 10px !important;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Sections
-
-#branding {
-  display: block;
-
-  img {
-    margin-top: 10px;
-  }
-
-  .navbar-text {
-    font-size: 20px;
-    color: white;
-    font-style: italic;
-    margin: 0 0 10px;
-  }
-}
-
-#left-sidebar,
-#right-sidebar {
-  background-color: $paleBlue;
-
-  .block {
-    padding: 20px 0;
-    border-bottom: solid 1px $darkBlue;
-
-    .field--name-body {
-      margin-bottom: 0;
-    }
-
-    &:last-child {
-      border-bottom: none;
-    }
-  }
-}
-
-@media (min-width: 768px) {
-  #left-sidebar {
-    @include border-radius(10px 0 0 10px);
-  }
-
-  #right-sidebar {
-    @include border-radius(0 10px 10px 0);
-  }
-}
 
 #content {
   background-color: white;
@@ -254,7 +237,7 @@ sub {
     img {
       text-align: center;
       margin: 0 auto 10px;
-      max-width: 100%;
+      max-width: 66.667%;
     }
 
     li {
@@ -289,8 +272,140 @@ sub {
   }
 }
 
+#left-sidebar,
+#right-sidebar {
+  .block {
+    padding: 20px 0;
+    border-bottom: solid 1px $darkRed;
+
+    .field--name-body {
+      margin-bottom: 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+#left-sidebar {
+  border-right: solid 1px $darkRed;
+}
+
+#right-sidebar {
+  border-left: solid 1px $darkRed;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// Table styles
+// Blocks
+
+//#block-mdc-main-menu {
+//  margin: 0 10px;
+//
+//  > ul {
+//    background-color: $darkBlue;
+//    width: 100%;
+//
+//    a {
+//      color: white;
+//    }
+//
+//    > li > a.is-active {
+//      background-color: $blue;
+//    }
+//
+//    > li > a:hover,
+//    > li > a:focus {
+//      background-color: $red;
+//    }
+//  }
+//}
+
+#block-booknavigation {
+  margin: 15px 0;
+
+  > h2 {
+    display: none;
+  }
+
+  nav > ul {
+    padding-left: 0;
+    list-style-type: none;
+
+    > li > a {
+      font-weight: bold;
+    }
+  }
+}
+
+#block-mdc-search {
+  .form-group {
+    margin: 0;
+  }
+}
+
+#block-imrs {
+  img {
+    width: 100%;
+  }
+}
+
+#block-copyrightnotice {
+  margin: 15px 0;
+}
+
+#block-mdc-socialicons {
+  padding-bottom: 10px !important;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Book pages
+
+// Appears at the bottom of a book page.
+.book-nav {
+  background-color: $paleGrey;
+  padding: 5px;
+  @include border-radius(5px);
+  margin-bottom: 15px;
+
+  table {
+    width: 100%;
+  }
+
+  .prev-page {
+    text-align: left;
+  }
+
+  .up-page {
+    text-align: center;
+  }
+
+  .next-page {
+    text-align: right;
+  }
+}
+
+.page-header {
+  margin-bottom: 5px;
+  border-bottom: none;
+}
+
+article.book {
+  margin: 5px 0 15px 0;
+}
+
+.author {
+  font-size: .8em;
+  color: $grey;
+  margin-bottom: 15px;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Tables
+
+caption {
+  font-style: italic;
+}
 
 tr.terrestrial {
   font-weight: bold;
@@ -327,42 +442,41 @@ tr.helium {
   background-color: $pink;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Figures
+
+figure {
+  text-align: center;
+  margin: 0 auto 10px;
+}
+
+figcaption {
+  text-align: center;
+  font-style: italic;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Buttons
+
+.btn-primary {
+  background-color: $darkRed;
+  border-color: $darkRed;
+
+  &:hover {
+    background-color: $darkBlue;
+    border-color: $darkBlue;
+  }
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Miscellaneous
-
-.author {
-  display: none;
-}
-
-.book-nav {
-  background-color: $paleBlue;
-  padding: 5px;
-  @include border-radius(5px);
-  margin-bottom: 15px;
-
-  table {
-    width: 100%;
-  }
-
-  .prev-page {
-    text-align: left;
-  }
-
-  .up-page {
-    text-align: center;
-  }
-
-  .next-page {
-    text-align: right;
-  }
-}
 
 .breadcrumb {
   background-color: transparent;
 }
 
 .logo {
-  float: none !important;
+  //float: none !important;
 
   img {
     width: 100%;
@@ -402,14 +516,6 @@ ul.links {
   }
 }
 
-nav.tabs {
-  margin: 15px 0;
-}
-
-article.book {
-  margin: 15px 0;
-}
-
 .math {
   margin-left: 20px;
 }
@@ -417,13 +523,4 @@ article.book {
 span.tab {
   display: inline-block;
   width: 50px;
-}
-
-figure {
-  text-align: center;
-  margin: 0 auto 10px;
-}
-
-figcaption {
-  text-align: center;
 }
