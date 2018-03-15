@@ -12,7 +12,9 @@
 # core
 
 # Core's dependencies are managed with Composer.
-vendor
+# Ignore the root vendor directory only.
+# We don't want to ignore /core/assets/vendor
+/vendor
 
 # Ignore configuration files that may contain sensitive information.
 sites/*/settings.local.php
